@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4780.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -9,8 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4780.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4780.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4780.robot.subsystems.Elevator;
-import org.usfirst.frc.team4780.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team4780.robot.RobotMap;
+import org.usfirst.frc.team4780.robot.subsystems.ExampleSubsystem; 
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,9 +34,10 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		
-    	oi = new OI();
+    	
     	elevator = new Elevator();
+    	oi = new OI();
+    	
 		
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();

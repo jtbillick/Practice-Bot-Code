@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ElevateUp extends Elevate {
+	
+	protected Elevator elevator;
 
  public ElevateUp(Elevator elevator) {
 		super(elevator, .65);

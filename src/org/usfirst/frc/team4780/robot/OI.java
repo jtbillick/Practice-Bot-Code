@@ -1,7 +1,9 @@
 package org.usfirst.frc.team4780.robot;
 
+import org.usfirst.frc.team4780.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team4780.robot.commands.ElevateDown;
 import org.usfirst.frc.team4780.robot.commands.ElevateUp;
+import org.usfirst.frc.team4780.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -42,23 +44,26 @@ public class OI {
     // until it is finished as determined by it'sisFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	Joystick joystick = new Joystick(1);
+	Joystick joystick = new Joystick(0);
 	double x;
 	double y;
 	//double twist;
-	private Button liftUpButt = new JoystickButton(joystick, 6);
+	Joystick nyko = new Joystick(0);
+	
+	private Button liftUpButt = new JoystickButton(nyko, 6);
 	//upper button = 6
 	//lower button = 4
-	private Button liftDownButt = new JoystickButton(joystick, 4);
+	private Button liftDownButt = new JoystickButton(nyko, 4);
 	//trigger = 1
 	//side button = 2
-	private Button takeBinIn = new JoystickButton(joystick, 1);
-	private Button takeBinOut = new JoystickButton(joystick, 2);
+	private Button takeBinIn = new JoystickButton(nyko, 1);
+	private Button takeBinOut = new JoystickButton(nyko, 2);
 	
 	public OI() {
 		liftUpButt.whileHeld(new ElevateUp(Robot.elevator));
 		liftDownButt.whileHeld(new ElevateDown(Robot.elevator));
 	}
+		
 	public double getXValue() {
 		return joystick.getX();
 	}

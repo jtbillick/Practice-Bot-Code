@@ -1,17 +1,23 @@
 package org.usfirst.frc.team4780.robot.commands;
 
 import org.usfirst.frc.team4780.robot.Robot;
+
 import org.usfirst.frc.team4780.robot.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 
 /**
  *
  */
 public class Elevate extends Command {
+	protected Elevator elevator;
+	public Elevate() {
+		requires(elevator);
+	}
 
 	protected double speed;
-	protected Elevator elevator;
+	
     // Called just before this Command runs the first time
     protected void initialize() {
     }
