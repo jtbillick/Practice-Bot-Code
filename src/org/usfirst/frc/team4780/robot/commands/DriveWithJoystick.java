@@ -4,7 +4,9 @@ import org.usfirst.frc.team4780.robot.Robot;
 import org.usfirst.frc.team4780.robot.subsystems.DriveTrain;
 
 
+
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -26,15 +28,19 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double x = Robot.oi.getXValue();
-    	double y = Robot.oi.getYValue();
+
     	//double twist;
-    	drive(x, y);
+    	
     }
 
-    private void drive(double x, double y) {
+    protected void drive(double x, double y, double speed) {
 		// TODO Auto-generated method stub
-		driveTrain.arcadeDrive(x, y);
+    	x = Robot.oi.getXValue();
+    	y = Robot.oi.getYValue();
+    	drive(x, y, 0.75);
+    	driveTrain.arcadeDrive(x, y);
+    	Timer.delay(0.1);
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
