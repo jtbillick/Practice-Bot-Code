@@ -39,7 +39,6 @@ public class DriveWithJoystick extends Command {
     	y = Robot.oi.getYValue();
     	drive(x, y, 0.75);
     	driveTrain.arcadeDrive(x, y);
-    	Timer.delay(0.1);
 		
 	}
 

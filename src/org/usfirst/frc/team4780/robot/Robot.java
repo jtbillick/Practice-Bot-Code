@@ -42,6 +42,8 @@ RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
     	
     	elevator = new Elevator();
     	oi = new OI();
+    	drive = new RobotDrive(leftVictor, rightVictor);
+    	joystick = new Joystick(0);
     	
 		
         // instantiate the command used for the autonomous period
@@ -76,6 +78,10 @@ RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        while (autonomousCommand != null) {
+        	drive.arcadeDrive(joystick);
+        	Timer.delay(0.01);
+        }
         }
     
     /**
