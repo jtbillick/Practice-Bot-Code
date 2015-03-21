@@ -48,7 +48,7 @@ public class OI {
 	double x;
 	double y;
 	//double twist;
-	Joystick nyko = new Joystick(0);
+	Joystick nyko = new Joystick(1);
 	
 	private Button liftUpButt = new JoystickButton(nyko, 6);
 	//upper button = 6
@@ -68,8 +68,8 @@ public class OI {
 		return joystick.getX();
 	}
 	
-	public double getYValue() {
-		return joystick.getY();
+	public Joystick getJoystickValue() {
+		return joystick;
 	}
 }
 

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4780.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
@@ -26,8 +27,8 @@ public class DriveTrain extends Subsystem {
 		drive = new RobotDrive(leftVictor, rightVictor);
 	}
 	
-	public void arcadeDrive(double x, double y){
-		drive.arcadeDrive(x, y);
+	public void getJoystickInputs(Joystick stick){
+		drive.arcadeDrive((stick.getX() * -1), -stick.getY());
 	}
 
     public void initDefaultCommand() {

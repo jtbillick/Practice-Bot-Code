@@ -25,22 +25,20 @@ public class DriveWithJoystick extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     }
+    protected void drive(double x, double y) {
+    	drive(x,y);
+		  
+	}
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	driveTrain.getJoystickInputs(Robot.oi.getJoystickValue());
 
     	//double twist;
     	
     }
 
-    protected void drive(double x, double y, double speed) {
-		// TODO Auto-generated method stub
-    	x = Robot.oi.getXValue();
-    	y = Robot.oi.getYValue();
-    	drive(x, y, 0.75);
-    	driveTrain.arcadeDrive(x, y);
-		
-	}
+
 
 	// Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -55,5 +53,6 @@ public class DriveWithJoystick extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+
 
 }
