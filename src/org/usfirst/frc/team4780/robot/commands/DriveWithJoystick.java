@@ -32,7 +32,7 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.getJoystickInputs(Robot.oi.getJoystickValue());
+    	driveTrain.drive(Robot.oi.getJoystickValue());
 
     	//double twist;
     	

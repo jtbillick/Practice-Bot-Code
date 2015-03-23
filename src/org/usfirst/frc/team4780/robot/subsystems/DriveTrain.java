@@ -17,18 +17,19 @@ public class DriveTrain extends Subsystem {
 	
 	private Victor rightVictor;
 	private Victor leftVictor;
-	private RobotDrive drive;
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public DriveTrain(){
 		rightVictor = new Victor(RobotMap.rightVictorPort);
 		leftVictor = new Victor(RobotMap.leftVictorPort);
-		drive = new RobotDrive(leftVictor, rightVictor);
 	}
 	
-	public void getJoystickInputs(Joystick stick){
-		drive.arcadeDrive((stick.getX() * -1), -stick.getY());
+	public void drive(Joystick stick){
+		double x = stick.getX();
+		double y = stick.getY();
+		leftVictor.set(x-y);
+		rightVictor.set(x+y);
 	}
 
     public void initDefaultCommand() {

@@ -15,11 +15,11 @@ public class RobotMap {
     // public static int leftMotor = 1;
     // public static int rightMotor = 2;
 	Victor leftVictor = new Victor(0);
-	Victor rightVictor = new Victor(3);
+	Victor rightVictor = new Victor(1);
 	Talon elevatorTalon = new Talon(2);
 	
 	public static final int leftVictorPort = 0;
-	public static final int rightVictorPort = 3;
+	public static final int rightVictorPort = 1;
 	public static final int elevatorTalonPort = 2;
 	
 	

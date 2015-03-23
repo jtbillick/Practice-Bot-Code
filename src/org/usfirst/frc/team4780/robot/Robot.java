@@ -22,12 +22,10 @@ import org.usfirst.frc.team4780.robot.subsystems.ExampleSubsystem;
  * directory.
  */
 public class Robot extends IterativeRobot {
-Victor leftVictor = new Victor(RobotMap.leftVictorPort);
-Victor rightVictor = new Victor(RobotMap.rightVictorPort);
-RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static DriveTrain driveTrain;
 	public static Joystick joystick;
+	public static Joystick elevateJoystick;
 	public static Elevator elevator;
 	public static OI oi;
 	
@@ -42,8 +40,9 @@ RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
     	
     	elevator = new Elevator();
     	oi = new OI();
-    	drive = new RobotDrive(leftVictor, rightVictor);
+    	driveTrain = new DriveTrain();
     	joystick = new Joystick(0);
+    	elevateJoystick = new Joystick(1);
     	
 		
         // instantiate the command used for the autonomous period
@@ -58,8 +57,8 @@ RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
         while (isAutonomous() && isEnabled()) {
-        	drive.setSafetyEnabled(false);
-        	drive.drive(0.75, 0.0);
+        	//drive.setSafetyEnabled(false);
+        	//drive.drive(0.75, 0.0);
         	Timer.delay(0.4);
         }
     }
@@ -79,7 +78,13 @@ RobotDrive drive = new RobotDrive(leftVictor, rightVictor);
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         while (autonomousCommand != null) {
-        	drive.arcadeDrive(joystick);
+        	
+        	// Drive control
+        	driveTrain.drive(joystick);
+        	
+        	// Elevator control
+        	elevator.setSpeed(-.5*elevateJoystick.getY());
+        	
         	Timer.delay(0.01);
         }
         }

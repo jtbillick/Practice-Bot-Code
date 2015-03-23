@@ -4,6 +4,7 @@ import org.usfirst.frc.team4780.robot.Robot;
 import org.usfirst.frc.team4780.robot.RobotMap;
 import org.usfirst.frc.team4780.robot.commands.ElevateStop;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -20,10 +21,10 @@ public class Elevator extends Subsystem {
 	public Elevator() {
 		elevatorTalon = new Talon(RobotMap.elevatorTalonPort);
 	}
-		public void setSpeed(double elevatorSpeed){
-			elevatorTalon.set(elevatorSpeed);
-		}
 	
+	public void setSpeed(double elevatorSpeed){
+		elevatorTalon.set(elevatorSpeed);
+	}
 
     public void initDefaultCommand() {
     	
